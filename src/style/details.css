@@ -1,0 +1,114 @@
+.card-container {
+  width: 80%;
+  display: flex;
+  gap: 0.5rem;
+  height: 31rem;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.applicant-card {
+  background: var(--grey-50);
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  width: 23rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-container .card {
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-container .card .field {
+  /* border: 2px solid red; */
+  display: flex;
+  height: 2rem;
+  color: var(--grey-700);
+  justify-content: space-between;
+}
+
+.card .field h5 {
+  font-size: 0.8em;
+  font-weight: 300;
+}
+
+.card .field p {
+  font-size: 0.8em;
+  font-weight: 300;
+}
+
+.card-title-h4 {
+  background: var(--grey-50);
+  font-size: 1.4em;
+  font-weight: 450;
+  z-index: 10;
+}
+
+.interview-card {
+  background: var(--grey-50);
+  padding: 0.5rem 1rem;
+  display: flex;
+  width: 23rem;
+  flex-direction: column;
+  overflow-y: scroll;
+  /* border: 2px solid red; */
+}
+
+.interviewer-data {
+  padding: 0.2rem 0rem;
+  border-radius: 10%;
+  background: var(--grey-50);
+}
+
+.interview-card .card {
+  margin-bottom: 2rem;
+}
+
+.interviewer-name {
+  width: 7rem;
+}
+.position-name {
+  width: 4rem;
+}
+.email-name {
+  width: 9rem;
+  text-align: left;
+}
+
+.assessment-card,
+.offerLetter-card {
+  background: var(--grey-50);
+  padding: 0.5rem 1rem;
+  display: flex;
+  width: 23rem;
+  flex-direction: column;
+  overflow-y: scroll;
+  /* border: 2px solid red; */
+}
+
+.assessment-card .card {
+  margin-bottom: 3rem;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--grey-200);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--grey-400);
+}
+
+.stepper-container {
+  width: 40rem;
+}
+
+.applicant-stepper {
+  width: 100%;
+}

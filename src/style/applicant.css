@@ -1,0 +1,194 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 10;
+  transition: var(--transition);
+}
+
+input:focus {
+  border: 1px solid var(--primary-500);
+  box-shadow: var(--shadow-2);
+  background: transparent;
+}
+
+.salaryExpt {
+  background: #efefef;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.salaryExpt p {
+  color: #aaa;
+  margin-left: 12px;
+}
+
+.bgImage {
+  position: absolute;
+  top: 0rem;
+  z-index: -1;
+  height: 90vh;
+  right: -4rem;
+  /* border: 2px solid red; */
+  animation-name: movingImage;
+  animation-duration: 2.5s;
+  animation-iteration-count: 1;
+}
+
+.assessmentImage {
+  right: -10rem;
+}
+
+@keyframes movingImage {
+  0% {
+    transform: translateX(-50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.add-btn {
+  font-size: large;
+}
+
+.pagination-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: var(--shadow-4);
+  border: 1px solid #ddd;
+  border-top: none;
+  width: 80%;
+  background: white;
+  z-index: 10;
+  font-size: 0.7rem;
+  border-end-end-radius: 15%;
+  border-start-start-radius: 10%;
+}
+
+.pagination-container strong {
+  color: var(--grey-700);
+  font-size: 1rem;
+}
+
+/* .pagination-container input {
+  outline: none;
+  border: 1px solid var(--grey-800);
+  height: 20%;
+} */
+
+.pagination-container select {
+  outline: none;
+  height: 1.8rem;
+  border: 1px solid var(--grey-800);
+}
+
+.pagination-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination-btn {
+  font-size: 1.2rem;
+  background: var(--primary-500);
+  color: white;
+  outline: none;
+  margin: 0 1px;
+  border: none;
+}
+
+.pagination-btn:hover {
+  background: var(--primary-800);
+}
+
+.action-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+}
+
+.action-container button {
+  border: transparent;
+  background: transparent;
+}
+
+.action-container .bi-icons {
+  font-size: 1rem;
+  color: var(--primary-800);
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.tableContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.applicant-width {
+  width: 98%;
+}
+
+.assessment-width {
+  width: 70%;
+}
+
+.interviewer-width {
+  width: 70%;
+}
+.offerLetter-width {
+  width: 70%;
+}
+.interview-width {
+  width: 98%;
+}
+
+.main-title {
+  display: flex;
+  min-width: 14rem;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+.main-title h4 {
+  font-weight: 500;
+  margin-top: 1.7rem;
+}
+
+.main-icon {
+  font-size: 1.7rem;
+  color: white;
+  border-radius: 10%;
+  background: var(--primary-600);
+}
+
+/* offer letter head */
+
+.secondary-title {
+  width: 80%;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 2px solid red; */
+}
+
+/* .secondary-title h4 {
+  margin-top: 0;
+} */
+
+.secondary-title .title-detail {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  /* border: 2px solid red; */
+}

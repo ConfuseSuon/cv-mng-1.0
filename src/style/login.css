@@ -6,27 +6,38 @@
   display: flex;
   align-items: center;
 }
-.container {
+.login-container {
   min-height: calc(100vh - 6rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: -3rem;
+  position: absolute;
+  top: 3.2rem;
+  z-index: 100;
+  left: 25rem;
+  width: 25rem;
+  gap: 1rem;
+  /* border: 2px solid red; */
 }
 h1 {
   font-weight: 700;
 }
-p {
-  width: 29rem;
-}
-.job-hunt {
-  width: 45%;
-}
+
 .info {
   display: flex;
   flex-direction: column;
-  margin-top: 0rem;
+  /* border: 2px solid red; */
 }
+
+.main-img {
+  position: absolute;
+  width: 40%;
+  right: 20rem;
+  bottom: 9rem;
+  z-index: 10;
+  /* border: 2px solid red; */
+}
+
 .login-btn {
   display: flex;
   height: 2.8rem;
@@ -34,6 +45,7 @@ p {
   justify-content: center;
   align-items: center;
   font-size: 1rem;
+  margin-top: 2rem;
 }
 span {
   margin-left: 0.9rem;

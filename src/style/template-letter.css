@@ -1,0 +1,52 @@
+.template-title {
+  /* background: red; */
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+}
+
+.temp-form-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-radius: 6px;
+  width: 80%;
+  height: 40rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: var(--borderRadius);
+}
+
+.quill-container {
+  min-width: 60rem;
+  max-height: 27rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.quill-field {
+  top: 20rem;
+  min-width: 60rem;
+}
+
+.ll {
+  font-size: 12px;
+  font-weight: 500;
+  color: #2e2e2e;
+}
+
+.ql-toolbar {
+  position: sticky;
+  top: 0rem;
+  width: 100%;
+  left: 0rem;
+  background: var(--grey-50);
+  z-index: 100;
+}
+
+.quill-field:focus,
+.quill-field:not(:placeholder-shown) {
+  background-color: #fff; /* White background color when focused or not empty */
+}

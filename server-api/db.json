@@ -1,0 +1,294 @@
+{
+  "applicant": [
+    {
+      "fullName": "Anmol Dangi Chhetry",
+      "firstName": "Anmol",
+      "middleName": "Dangi",
+      "lastName": "Chhetry",
+      "email": "asdg@gmail.com",
+      "mobileNumber": "9822900376",
+      "status": "Hired",
+      "technology": "Dot Net",
+      "position": "Junior",
+      "references": "jeevan@gmail.com",
+      "salaryExpectation": 83000,
+      "experience": 2.3,
+      "period": "year",
+      "resume": {},
+      "id": 1
+    },
+    {
+      "fullName": "Sangam Chaudhary",
+      "firstName": "Sangam",
+      "middleName": "",
+      "lastName": "Chaudhary",
+      "email": "sangam1@gmail.com",
+      "mobileNumber": "9822900376",
+      "status": "II Interview Completed",
+      "technology": "QA",
+      "position": "Senior",
+      "references": "jeevan@gmail.com",
+      "salaryExpectation": 35000,
+      "experience": 2.4,
+      "period": "month",
+      "resume": {},
+      "id": 2
+    },
+    {
+      "fullName": "Alex Thapa",
+      "firstName": "Alex",
+      "middleName": "",
+      "lastName": "Thapa",
+      "email": "alexthapa@gmail.com",
+      "mobileNumber": "9822900376",
+      "status": "II Interview Completed",
+      "technology": "React JS",
+      "position": "Mid-level",
+      "references": "jeevan@gmail.com",
+      "salaryExpectation": 62000,
+      "experience": 2,
+      "period": "year",
+      "resume": {},
+      "id": 3
+    },
+    {
+      "fullName": "Suon Magar",
+      "firstName": "Suon",
+      "middleName": "",
+      "lastName": "Magar",
+      "email": "zunaid@gmail.com",
+      "mobileNumber": "9822900376",
+      "status": "Short Listed",
+      "technology": "Dot Net",
+      "position": "Junior",
+      "references": "",
+      "salaryExpectation": 74000,
+      "experience": 22,
+      "period": "month",
+      "resume": {},
+      "id": 4
+    },
+    {
+      "fullName": "Suon Magar",
+      "firstName": "Suon",
+      "middleName": "",
+      "lastName": "Magar",
+      "email": "fadfa@gmail.com",
+      "mobileNumber": "9822900376",
+      "status": "II Interview Completed",
+      "technology": "DevOps",
+      "position": "Junior",
+      "references": "2",
+      "salaryExpectation": 35000,
+      "experience": 2,
+      "period": "year",
+      "resume": {},
+      "id": 5
+    },
+    {
+      "fullName": "Suon Magar",
+      "firstName": "Suon",
+      "middleName": "",
+      "lastName": "Magar",
+      "email": "su@gmail.com",
+      "mobileNumber": "9822900376",
+      "status": "I Interview Completed",
+      "technology": "React JS",
+      "position": "Junior",
+      "references": "",
+      "salaryExpectation": 54000,
+      "experience": 2.4,
+      "period": "year",
+      "resume": {},
+      "id": 6
+    },
+    {
+      "fullName": "Suon Magar",
+      "firstName": "Suon",
+      "middleName": "",
+      "lastName": "Magar",
+      "email": "zunaid@gmail.com",
+      "mobileNumber": "9822900376",
+      "status": "Short Listed",
+      "technology": "QA",
+      "position": "Junior",
+      "references": "",
+      "salaryExpectation": 53000,
+      "experience": 2.3,
+      "period": "year",
+      "resume": {},
+      "id": 7
+    },
+    {
+      "fullName": "Suon Magar",
+      "firstName": "Suon",
+      "middleName": "",
+      "lastName": "Magar",
+      "email": "asdg@gmail.com",
+      "mobileNumber": "9822900376",
+      "status": "Short Listed",
+      "technology": "React JS",
+      "position": "Junior",
+      "references": "",
+      "salaryExpectation": 35000,
+      "experience": 2.3,
+      "period": "month",
+      "resume": {},
+      "id": 8
+    },
+    {
+      "fullName": "Suon Magar",
+      "firstName": "Suon",
+      "middleName": "",
+      "lastName": "Magar",
+      "email": "fadfa@gmail.com",
+      "mobileNumber": "9822900376",
+      "status": "Short Listed",
+      "technology": "Dot Net",
+      "position": "Senior",
+      "references": "",
+      "salaryExpectation": 71000,
+      "experience": 2.4,
+      "period": "year",
+      "resume": {},
+      "id": 9
+    },
+    {
+      "fullName": "Suon Magar",
+      "firstName": "Suon",
+      "middleName": "",
+      "lastName": "Magar",
+      "email": "asdg@gmail.com",
+      "mobileNumber": "9822900376",
+      "status": "Hired",
+      "technology": "DevOps",
+      "position": "Mid-level",
+      "references": "",
+      "salaryExpectation": 49000,
+      "experience": 2.3,
+      "period": "month",
+      "resume": {},
+      "id": 10
+    }
+  ],
+  "assessment": [
+    {
+      "applicantId": "[{\"applicantId\":1,\"applicantName\":\"Anmol Dangi Chhetry\"}]",
+      "title": "First Assessment!",
+      "evaluation": "Fair Good",
+      "document": {},
+      "applicantFile": null,
+      "id": 1
+    },
+    {
+      "applicantId": "[{\"applicantId\":3,\"applicantName\":\"Alex Thapa\"}]",
+      "title": "Final Assessment",
+      "evaluation": "Outstanding",
+      "document": {},
+      "applicantFile": null,
+      "id": 2
+    },
+    {
+      "applicantId": "[{\"applicantId\":3,\"applicantName\":\"Alex Thapa\"}]",
+      "title": "One More",
+      "evaluation": "Let see",
+      "document": {},
+      "applicantFile": null,
+      "id": 3
+    }
+  ],
+  "interviewer": [
+    {
+      "interviewerName": "Sanni Khanal",
+      "email": "su@gmail.com",
+      "position": "Senior",
+      "id": 1
+    },
+    {
+      "interviewerName": "Madhav Adhikari",
+      "email": "madhav@gmail.com",
+      "position": "Junior",
+      "id": 2
+    }
+  ],
+  "offerLetter": [
+    {
+      "applicantId": "[{\"applicantId\":2,\"applicantName\":\"Sangam Chaudhary\"}]",
+      "status": "Rejected",
+      "letterFile": {},
+      "remarks": "Better Luck Next Time",
+      "id": 1
+    },
+    {
+      "applicantId": "[{\"applicantId\":3,\"applicantName\":\"Alex Thapa\"}]",
+      "status": "Hired",
+      "letterFile": {},
+      "remarks": "Good",
+      "id": 2
+    }
+  ],
+  "interview": [
+    {
+      "title": "Internship 12",
+      "dateTime": "2023-05-29T18:15:00.000Z",
+      "applicantId": "[{\"applicantId\":1,\"applicantName\":\"Anmol Dangi Chhetry\"}]",
+      "interviewerId": [
+        {
+          "interviewerName": "Sanni Khanal",
+          "email": "su@gmail.com",
+          "position": "Senior",
+          "id": 1
+        }
+      ],
+      "id": 1
+    },
+    {
+      "dateTime": "2023-05-14T18:15:00.000Z",
+      "title": "Job Hiring",
+      "applicantId": "[{\"applicantId\":3,\"applicantName\":\"Alex Thapa\"}]",
+      "interviewerId": [
+        {
+          "interviewerName": "Madhav Adhikari",
+          "email": "madhav@gmail.com",
+          "position": "Junior",
+          "id": 2
+        }
+      ],
+      "id": 2
+    },
+    {
+      "dateTime": "2023-05-22T11:15:00.000Z",
+      "title": "React Internship",
+      "applicantId": "[{\"applicantId\":3,\"applicantName\":\"Alex Thapa\"}]",
+      "interviewerId": [
+        {
+          "interviewerName": "Madhav Adhikari",
+          "email": "madhav@gmail.com",
+          "position": "Junior",
+          "id": 2
+        }
+      ],
+      "id": 3
+    },
+    {
+      "dateTime": "2023-05-28T17:45:00.195Z",
+      "title": "Final Meeting",
+      "applicantId": "[{\"applicantId\":1,\"applicantName\":\"Anmol Dangi Chhetry\"}]",
+      "interviewerId": [
+        {
+          "interviewerName": "Sanni Khanal",
+          "email": "su@gmail.com",
+          "position": "Senior",
+          "id": 1
+        },
+        {
+          "interviewerName": "Madhav Adhikari",
+          "email": "madhav@gmail.com",
+          "position": "Junior",
+          "id": 2
+        }
+      ],
+      "id": 4
+    }
+  ]
+}
