@@ -88,6 +88,7 @@ const offerLetterSlice = createSlice({
             })
             .addCase(postOfferLetterData.fulfilled, (state, { payload }) => {
                 state.loading = false;
+                getOfferLetterData()
                 toast.success(`Offer letter is added !`, state.toastify);
             })
             .addCase(postOfferLetterData.rejected, (state, action) => {

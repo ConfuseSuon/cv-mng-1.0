@@ -1,6 +1,6 @@
 import React from "react";
 import homeStyle from "../style/home.module.css";
-import { BiCaretDown, BiCaretUp, BiListPlus, BiReceipt } from "react-icons/bi";
+import { BiCaretDown, BiCaretUp, BiReceipt } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import {
     dropdownOption,

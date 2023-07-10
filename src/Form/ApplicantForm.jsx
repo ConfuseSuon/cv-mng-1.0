@@ -142,8 +142,7 @@ const ApplicantForm = () => {
                                         <label>Status</label>
                                         <Field as='select' name='status'>
                                             <option value='Short Listed'>Short Listed</option>
-                                            <option value='I Interview Completed'>I Interview Completed</option>
-                                            <option value='II Interview Completed'>II Interview Completed</option>
+                                            <option value='Interviewing'>Interviewing</option>
                                             <option value='Hired'>Hired</option>
                                             <option value='Rejected'>Rejected</option>
                                         </Field>

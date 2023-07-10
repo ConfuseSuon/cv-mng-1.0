@@ -1,35 +1,35 @@
 import React from 'react'
 import moment from 'moment'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { openFormFunc } from '../Features/form/formSlice'
 import { openDeleteModal } from '../Features/modal/modalSlice'
 
-const InterviewView = ({ id, request }) => {
+const InterviewView = ({ id, request, createFormData }) => {
 
     const dispatch = useDispatch()
-    const interviewData = JSON.parse(localStorage.getItem("Interview"))
+    const { interviewData } = useSelector((store) => store.interview)
 
-    const formEditValue = JSON.parse(localStorage.getItem("interviewEditValue"))
 
-    console.log(formEditValue)
-    console.log("hhhhh")
+    const hanldeCreateForm = () => {
+        const value = [];
+        value.push(createFormData)
+        dispatch(openFormFunc({ data: value, action: 'createViewInterview' }))
+    }
 
 
     const handleRequest = (pageName) => {
         if (pageName === "applicant") {
-            const filterInterviewApplicant = interviewData.filter((item) => {
+            const filterApplicantRequest = interviewData.filter((item) => {
                 const data = JSON.parse(item.applicantId)
                 return data[0].applicantId === parseInt(id)
             })
-            const singleInterviewApplicant = filterInterviewApplicant
-            return singleInterviewApplicant
+            return filterApplicantRequest
         }
         else {
-            const filterInterview = interviewData.filter((item) => {
+            const filterAssessment = interviewData.filter((item) => {
                 return item.id === parseInt(id)
             })
-            const singleInterview = filterInterview
-            return singleInterview
+            return filterAssessment
         }
     }
 
@@ -37,12 +37,18 @@ const InterviewView = ({ id, request }) => {
     return (
         <React.Fragment>
             <div className="interview-card">
-                <h4 className='card-title-h4'>Interview </h4>
+                <div className="card-header">
+                    <h4 className='card-title-h4'>Interview </h4>
+                    {request === "applicant" && (
+                        <button className='btn' onClick={hanldeCreateForm}> Create </button>
+                    )}
+                </div>
                 {
                     handleRequest(request).length > 0 ? (
                         handleRequest(request).map((data) => {
-                            const applicantName = JSON.parse(data.applicantId)
-
+                            const applicantData = JSON.parse(data.applicantId)
+                            const { title, dateTime, applicantId, interviewerId, id } = data
+                            const formEditData = { title, dateTime, applicantId, interviewerId, id }
                             return (
                                 <div className="card" key={data.id}>
                                     <div className="card-content">
@@ -52,7 +58,7 @@ const InterviewView = ({ id, request }) => {
                                         </div>
                                         <div className="field">
                                             <h5>Applicant</h5>
-                                            <p>{applicantName[0].applicantName}</p>
+                                            <p>{applicantData[0].applicantName}</p>
                                         </div>
                                         <div className="field">
                                             <h5>Date Time</h5>
@@ -78,12 +84,15 @@ const InterviewView = ({ id, request }) => {
                                         <hr />
                                     </div>
                                     <div className="view-btn-container">
-                                        <button className="btn" onClick={() => dispatch(openFormFunc({ data: formEditValue, action: "editInterview" }))} >Edit</button>
-                                        <button className="btn cancel" onClick={() => dispatch(openDeleteModal({ data: formEditValue, action: "deleteInterview" }))}>Delete</button>
+                                        <button className="btn" onClick={() => dispatch(openFormFunc({ data: formEditData, action: "editInterview" }))} >Edit</button>
+                                        <button className="btn cancel" onClick={() => dispatch(openDeleteModal({ data: formEditData, action: "deleteInterview" }))}>Delete</button>
                                     </div>
                                 </div>
+
+
                             )
                         })
+
 
 
                     ) : 'No - Data'

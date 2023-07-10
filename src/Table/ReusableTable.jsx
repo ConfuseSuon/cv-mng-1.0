@@ -43,7 +43,7 @@ const ReusableTable = ({ data, columns, action, request, dropdown }) => {
                 break;
 
             case "assessmentTestDetails":
-                navigate(`/assesment-test/assessment-test-details/${id}`);
+                navigate(`/assessment-test/assessment-test-details/${id}`);
                 dispatch(getApplicantData())
                 break;
 

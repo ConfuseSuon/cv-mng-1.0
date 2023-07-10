@@ -1,28 +1,32 @@
-import React, { } from 'react'
-import { NavLink } from 'react-router-dom'
-
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 // css and icons
-import logo from '../asset/logo.svg'
-import '../style/nav-sidebar.css'
-import { BiHome, BiLogOut, BiMoon, BiDetail, BiTask, BiBriefcase, BiGroup } from 'react-icons/bi'
-import { AiOutlineFileSearch } from 'react-icons/ai'
-import { useDispatch, useSelector } from 'react-redux'
-import { logoutFunc } from '../Features/auth/authSlice'
-import { openDeleteModal } from '../Features/modal/modalSlice'
-
+import logo from "../asset/logo.svg";
+import "../style/nav-sidebar.css";
+import {
+  BiHome,
+  BiLogOut,
+  BiMoon,
+  BiDetail,
+  BiTask,
+  BiBriefcase,
+  BiGroup,
+} from "react-icons/bi";
+import { AiOutlineFileSearch } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutFunc } from "../Features/auth/authSlice";
+import Loading from "../Components/Loading";
 
 const NavSideBar = () => {
-  const dispatch = useDispatch()
-  const { closeSideBar } = useSelector((store) => store.sharedFeatures)
+  const dispatch = useDispatch();
+  const { closeSideBar } = useSelector((store) => store.sharedFeatures);
 
   return (
     <React.Fragment>
-
-
-      <nav className={`${closeSideBar ? 'nav-sidebar close' : 'nav-sidebar'}`}>
+      <nav className={`${closeSideBar ? "nav-sidebar close" : "nav-sidebar"}`}>
         <div className="logo-container">
-          <NavLink to='/'>
+          <NavLink to="/">
             <img src={logo} alt="" />
           </NavLink>
         </div>
@@ -54,7 +58,7 @@ const NavSideBar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/assesment-test">
+              <NavLink to="/assessment-test">
                 <BiTask className="bi-icons" />
                 <span className="link-name">Assessment Test</span>
               </NavLink>
@@ -74,19 +78,30 @@ const NavSideBar = () => {
           </ul>
 
           <ul className="logout-mode">
-            <li> <NavLink to="login" onClick={() => dispatch(logoutFunc())}> <BiLogOut className='bi-icons' /> <span className='link-name'>Logout</span></NavLink></li>
-            <li className='mode'>
+            <li>
+              {" "}
+              <NavLink
+                to="login"
+                onClick={() => {
+                  dispatch(logoutFunc());
+                }}
+              >
+                {" "}
+                <BiLogOut className="bi-icons" />{" "}
+                <span className="link-name">Logout</span>
+              </NavLink>
+            </li>
+            {/* <li className='mode'>
               <a href='not'> <BiMoon className='bi-icons' /> <span className='link-name'>Dark Mode</span></a>
               <div className="mode-toggle" >
                 <span className='switch'></span>
               </div>
-            </li>
+            </li> */}
           </ul>
-
         </div>
       </nav>
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default NavSideBar
+export default NavSideBar;

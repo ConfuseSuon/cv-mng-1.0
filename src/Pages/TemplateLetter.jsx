@@ -12,7 +12,7 @@ const TemplateLetter = () => {
 
     return (
         <React.Fragment>
-            <Header back={'offer-letter'} />
+            <Header back={'offerLetter'} />
             <section className={`${closeSideBar ? 'main-container full-section' : 'main-container '}`}>
 
                 <div className="tableContainer ">

@@ -46,7 +46,6 @@ const InterivewDetails = () => {
 
                         <div className="card-container">
                             <InterviewView id={interviewId} request={'interview'} />
-
                         </div>
                     </div>) : 'no - data'
                 }

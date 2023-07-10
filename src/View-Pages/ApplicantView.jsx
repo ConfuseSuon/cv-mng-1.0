@@ -1,8 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const ApplicantView = ({ applicantId }) => {
 
-    const applicantData = JSON.parse(localStorage.getItem("Applicant"))
+    const { applicantData } = useSelector((store) => store.applicant)
 
     const filterApplicant = applicantData.filter((item) => item.id === parseInt(applicantId))
     const singleApplicant = filterApplicant[0]

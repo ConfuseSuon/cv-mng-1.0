@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ApplicantForm from '../Form/ApplicantForm'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 // components and style
@@ -11,16 +11,22 @@ import { AiOutlineFileSearch } from 'react-icons/ai'
 import ReusableTable from '../Table/ReusableTable'
 import { applicantColumns } from '../Table/columns'
 import Modal from '../Shared-Layout/Modal'
+import { getApplicantData } from '../Features/applicant/applicantSlice'
 
 
 const Applicant = () => {
 
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getApplicantData())
+  }, [dispatch])
+
+
   const { openAppForm } = useSelector((store) => store.form)
+  const { applicantData } = useSelector((store) => store.applicant)
   const { applicantDeleteModal } = useSelector((store) => store.modal)
   const { closeSideBar } = useSelector((store) => store.sharedFeatures)
-
-
-  const applicantData = JSON.parse(localStorage.getItem("Applicant"))
 
 
 

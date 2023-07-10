@@ -20,10 +20,10 @@ const InterviewForm = () => {
     dispatch(getInterviewerData())
   }, [dispatch])
 
-  const { interviewEditValue } = useSelector((store) => store.form)
+
+  const { interviewEditValue, createViewInterviewValue } = useSelector((store) => store.form)
   const { applicantData } = useSelector((store) => store.applicant)
   const { interviewerData } = useSelector((store) => store.interviewer)
-  // calling applicant data and interviewer data
 
 
   const initialValues = {
@@ -33,16 +33,25 @@ const InterviewForm = () => {
     interviewerId: [],
   }
 
+
+  const editingId = interviewEditValue.id
   const editingValue = {
     title: interviewEditValue.title,
     dateTime: new Date(interviewEditValue.dateTime),
     applicantId: interviewEditValue.applicantId,
-    interviewerId: interviewEditValue.interviewerId
+    interviewerId: interviewEditValue.interviewerId,
   }
 
-  console.log(editingValue.interviewerId, 'm')
+  const createViewValue = {
+    dateTime: '',
+    title: '',
+    applicantId: JSON.stringify(createViewInterviewValue),
+    interviewerId: [],
+  }
 
-  let editingId = interviewEditValue.id
+  // const sending initialValues for formk
+  const formValues = editingId ? editingValue : createViewInterviewValue.length > 0 ? createViewValue : initialValues
+
 
   const onSubmit = async (values, { resetForm }) => {
 
@@ -66,34 +75,12 @@ const InterviewForm = () => {
         <header>Interview</header>
 
         <Formik
-          initialValues={(editingId) ? editingValue : initialValues}
+          initialValues={formValues}
           validationSchema={interviewSchema} onSubmit={onSubmit}>
           {({ values, errors, touched }) => (
 
             <Form >
               <div className="fields">
-
-                <div className="input-field">
-                  <label>Title</label>
-                  <Field type="text" name='title' />
-                  {errors.title && touched.title && (
-                    <div className='error-box'>
-                      <span className='error'>{errors.title}</span>
-                    </div>
-                  )}
-                </div>
-
-                <div className='input-field ' >
-                  <label htmlFor="dateTime">Date Time</label>
-                  <ReDatePicker name="dateTime" />
-
-                  {/* <Field type="datetime-local" name="dateTime" /> */}
-                  {errors.dateTime && touched.dateTime && (
-                    <div className='error-box'>
-                      <span className='error'>{errors.dateTime}</span></div>
-                  )}
-                </div>
-
                 <div className="input-field">
                   <label>Applicant</label>
                   <Field as='select' name='applicantId'>
@@ -116,6 +103,28 @@ const InterviewForm = () => {
                     </div>
                   )}
                 </div>
+
+                <div className="input-field">
+                  <label>Title</label>
+                  <Field type="text" name='title' />
+                  {errors.title && touched.title && (
+                    <div className='error-box'>
+                      <span className='error'>{errors.title}</span>
+                    </div>
+                  )}
+                </div>
+
+                <div className='input-field ' >
+                  <label htmlFor="dateTime">Date Time</label>
+                  <ReDatePicker name="dateTime" />
+
+                  {/* <Field type="datetime-local" name="dateTime" /> */}
+                  {errors.dateTime && touched.dateTime && (
+                    <div className='error-box'>
+                      <span className='error'>{errors.dateTime}</span></div>
+                  )}
+                </div>
+
 
                 <div className="input-field interviewerSelect " >
                   <label>Interviewer</label>

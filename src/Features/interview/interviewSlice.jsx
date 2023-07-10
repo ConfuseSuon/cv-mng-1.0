@@ -16,6 +16,18 @@ export const getInterviewData = createAsyncThunk(
     }
 );
 
+export const getInterviewDataById = createAsyncThunk(
+    "interview/getInterviewDataById",
+    async (id) => {
+        try {
+            const { data } = await axios.get(`${url}/${id}`);
+            return data;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+);
+
 export const postInterviewData = createAsyncThunk(
     "interview/postInterviewData",
     async (values) => {
@@ -52,10 +64,10 @@ export const deleteInterviewData = createAsyncThunk(
     }
 );
 
-
 const initialState = {
     loading: false,
     interviewData: [],
+    interviewDataById: [],
     showCalendar: false,
     toastify: {
         position: "bottom-right",
@@ -74,11 +86,11 @@ const interviewSlice = createSlice({
     initialState,
     reducers: {
         showCalendarFunc: (state) => {
-            state.showCalendar = true
+            state.showCalendar = true;
         },
         closeCalendarFunc: (state) => {
-            state.showCalendar = false
-        }
+            state.showCalendar = false;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -87,6 +99,7 @@ const interviewSlice = createSlice({
             })
             .addCase(postInterviewData.fulfilled, (state, { payload }) => {
                 state.loading = false;
+                getInterviewData()
                 toast.success(`${payload.title} is scheduled !`, state.toastify);
             })
             .addCase(postInterviewData.rejected, (state, action) => {
@@ -99,7 +112,6 @@ const interviewSlice = createSlice({
             .addCase(getInterviewData.fulfilled, (state, { payload }) => {
                 state.loading = false;
                 state.interviewData = payload;
-                localStorage.setItem("Interview", JSON.stringify(payload))
             })
             .addCase(getInterviewData.rejected, (state, action) => {
                 state.loading = false;
@@ -110,9 +122,7 @@ const interviewSlice = createSlice({
             })
             .addCase(putInterviewData.fulfilled, (state, { payload }) => {
                 state.loading = false;
-                localStorage.setItem("interviewEditValue", JSON.stringify(payload))
                 toast.success(`${payload.title} is updated !`, state.toastify);
-                console.log(payload, "mmmmmmmmee")
             })
             .addCase(putInterviewData.rejected, (state, action) => {
                 state.loading = false;
@@ -133,9 +143,20 @@ const interviewSlice = createSlice({
             .addCase(deleteInterviewData.rejected, (state, action) => {
                 state.loading = false;
                 console.log("Rejected on builder", action.payload);
+            })
+            .addCase(getInterviewDataById.pending, (state, action) => {
+                state.loading = true;
+            })
+            .addCase(getInterviewDataById.fulfilled, (state, { payload }) => {
+                state.loading = false;
+                state.interviewDataById = []
+                state.interviewDataById.push(payload)
+            })
+            .addCase(getInterviewDataById.rejected, (state, action) => {
+                state.loading = false;
             });
     },
 });
 
-export const { showCalendarFunc, closeCalendarFunc } = interviewSlice.actions
+export const { showCalendarFunc, closeCalendarFunc } = interviewSlice.actions;
 export default interviewSlice.reducer;

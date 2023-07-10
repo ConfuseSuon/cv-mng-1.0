@@ -181,6 +181,12 @@ input:focus {
   /* border: 2px solid red; */
 }
 
+.status-title {
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 2px solid red; */
+}
 /* .secondary-title h4 {
   margin-top: 0;
 } */

@@ -66,14 +66,33 @@ const initialState = {
     theme: "light",
   },
   loading: false,
-  modal: false,
-  currentActionID: "",
 };
 
 const applicantSlice = createSlice({
   name: "applicant",
   initialState,
-  reducers: {},
+  reducers: {
+    handelActiveStepper: (state, { payload }) => {
+      let value;
+      switch (payload.status) {
+        case "Short Listed":
+          value = 1;
+          break;
+        case "Interviewing":
+          value = 2;
+          break;
+        case "Rejected":
+          value = 3;
+          break;
+        case "Hired":
+          value = 4;
+          break;
+        default:
+          console.log("unknown")
+      }
+      return value
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getApplicantData.pending, (state, action) => {
@@ -82,7 +101,6 @@ const applicantSlice = createSlice({
       .addCase(getApplicantData.fulfilled, (state, action) => {
         state.loading = false;
         state.applicantData = action.payload;
-        localStorage.setItem("Applicant", JSON.stringify(action.payload))
 
       })
       .addCase(getApplicantData.rejected, (state, action) => {
@@ -123,8 +141,6 @@ const applicantSlice = createSlice({
             (applicant) => applicant.id !== payload
           );
         }
-        localStorage.setItem("Applicant", JSON.stringify(state.applicantData))
-        getApplicantData()
 
       })
       .addCase(deleteApplicantData.rejected, (state, action) => {
@@ -134,5 +150,5 @@ const applicantSlice = createSlice({
   },
 });
 
-export const { openDeleteModal, closeDeleteModal } = applicantSlice.actions;
+export const { openDeleteModal, closeDeleteModal, handelActiveStepper } = applicantSlice.actions;
 export default applicantSlice.reducer;

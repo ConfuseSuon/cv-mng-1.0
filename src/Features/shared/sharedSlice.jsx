@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     closeSideBar: false,
+    searchQuery: '',
 }
 
 const sharedSlice = createSlice({
@@ -12,10 +13,14 @@ const sharedSlice = createSlice({
         toggleSideBar: (state) => {
             state.closeSideBar = !state.closeSideBar
         },
+        searchTerm: (state, { payload }) => {
+            state.searchQuery = payload
+            console.log(state.searchQuery)
+        }
     }
 })
 
 
 
-export const { toggleSideBar } = sharedSlice.actions
+export const { toggleSideBar, searchTerm } = sharedSlice.actions
 export default sharedSlice.reducer

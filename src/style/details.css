@@ -1,5 +1,5 @@
 .card-container {
-  width: 80%;
+  width: 100%;
   display: flex;
   gap: 0.5rem;
   height: 31rem;
@@ -59,6 +59,15 @@
   /* border: 2px solid red; */
 }
 
+.interview-card .card-header,
+.assessment-card .card-header,
+.offerLetter-card .card-header {
+  display: flex;
+  justify-content: space-between;
+  height: 7%;
+  margin-bottom: 2rem;
+}
+
 .interviewer-data {
   padding: 0.2rem 0rem;
   border-radius: 10%;
@@ -91,7 +100,8 @@
   /* border: 2px solid red; */
 }
 
-.assessment-card .card {
+.assessment-card .card,
+.offerLetter-card .card {
   margin-bottom: 3rem;
 }
 

@@ -15,8 +15,10 @@ const OfferLetterForm = () => {
         dispatch(getApplicantData())
     }, [dispatch])
 
-    const { offerLetterEditValue } = useSelector((store) => store.form)
+
+    const { offerLetterEditValue, createViewOfferLetterValue } = useSelector((store) => store.form)
     const { applicantData } = useSelector((store) => store.applicant)
+
 
     const initialValues = {
         applicantId: [],
@@ -25,14 +27,27 @@ const OfferLetterForm = () => {
         remarks: '',
     }
 
-    const editingValues = {
+
+    let editingId = offerLetterEditValue.id
+    const editingValue = {
         applicantId: offerLetterEditValue.applicantId,
         status: offerLetterEditValue.status,
         letterFile: null,
         remarks: offerLetterEditValue.remarks,
     }
 
-    let editingId = offerLetterEditValue.id
+
+    const createViewValue = {
+        applicantId: JSON.stringify(createViewOfferLetterValue),
+        status: '',
+        letterFile: null,
+        remarks: '',
+    }
+
+
+    // const sending initialValues for formk
+    const formValues = editingId ? editingValue : createViewOfferLetterValue.length > 0 ? createViewValue : initialValues
+
 
     const onSubmit = async (values, { resetForm }) => {
 
@@ -54,7 +69,7 @@ const OfferLetterForm = () => {
             <div className="form-container">
                 <header>Offer Letter</header>
                 <Formik
-                    initialValues={(editingId) ? editingValues : initialValues}
+                    initialValues={formValues}
                     validationSchema={offerLetterSchema} onSubmit={onSubmit}>
                     {({ values, errors, touched, setFieldValue }) => (
 
@@ -88,8 +103,7 @@ const OfferLetterForm = () => {
                                     <label htmlFor='status'>Status</label>
                                     <Field as='select' name='status'>
                                         <option value='Short Listed'>Short Listed</option>
-                                        <option value='I Interview Completed'>I Interview Completed</option>
-                                        <option value='II Interview Completed'>II Interview Completed</option>
+                                        <option value='Interviewing '>Interviewing</option>
                                         <option value='Hired'>Hired</option>
                                         <option value='Rejected'>Rejected</option>
                                     </Field>

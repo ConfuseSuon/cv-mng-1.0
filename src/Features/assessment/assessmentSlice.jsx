@@ -78,6 +78,7 @@ const assesmentSlice = createSlice({
             })
             .addCase(postAssessmentData.fulfilled, (state, { payload }) => {
                 state.loading = false;
+                getAssessmentData()
                 toast.success(`${payload.title} is added !`, state.toastify);
             })
             .addCase(postAssessmentData.rejected, (state, action) => {
@@ -90,7 +91,6 @@ const assesmentSlice = createSlice({
             .addCase(getAssessmentData.fulfilled, (state, { payload }) => {
                 state.loading = false;
                 state.assessmentData = payload;
-                localStorage.setItem("Assessment", JSON.stringify(payload))
             })
             .addCase(getAssessmentData.rejected, (state, action) => {
                 state.loading = false;

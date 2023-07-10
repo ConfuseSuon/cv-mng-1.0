@@ -1,8 +1,19 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { openFormFunc } from '../Features/form/formSlice'
+import { openDeleteModal } from '../Features/modal/modalSlice'
 
-const AssessmentView = ({ id, request }) => {
+const AssessmentView = ({ id, request, createFormData }) => {
 
-    const assessmentData = JSON.parse(localStorage.getItem("Assessment"))
+    const dispatch = useDispatch()
+    const { assessmentData } = useSelector((store) => store.assessment)
+
+    const hanldeCreateForm = () => {
+        const value = [];
+        value.push(createFormData)
+        dispatch(openFormFunc({ data: value, action: 'createViewAssessment' }))
+    }
+
 
     const handleRequest = (pageName) => {
         if (pageName === "applicant") {
@@ -24,12 +35,19 @@ const AssessmentView = ({ id, request }) => {
     return (
         <React.Fragment>
             <div className="assessment-card">
-                <h4 className='card-title-h4'>Assessment</h4>
+                <div className="card-header">
+                    <h4 className='card-title-h4'>Assessment </h4>
+                    {request === "applicant" && (
+                        <button className='btn' onClick={hanldeCreateForm}> Create </button>
+                    )}
+                </div>
                 {
                     handleRequest(request).length > 0 ? (
 
                         handleRequest(request).map((data) => {
-                            const applicantName = JSON.parse(data.applicantId)
+                            const applicantData = JSON.parse(data.applicantId)
+                            const { applicantId, title, evaluation, document, applicantFile, id } = data
+                            const formEditData = { applicantId, title, evaluation, document, applicantFile, id }
                             return (
                                 <div className="card" key={data.id}>
                                     <div className="card-content">
@@ -39,7 +57,7 @@ const AssessmentView = ({ id, request }) => {
                                         </div>
                                         <div className="field">
                                             <h5>Applicant</h5>
-                                            <p>{applicantName[0].applicantName}</p>
+                                            <p>{applicantData[0].applicantName}</p>
                                         </div>
                                         <div className="field">
                                             <h5>Evaluation</h5>
@@ -52,8 +70,10 @@ const AssessmentView = ({ id, request }) => {
                                         <hr />
                                     </div>
                                     <div className="view-btn-container">
-                                        <button className="btn"  >Edit</button>
-                                        <button className="btn cancel">Delete</button>
+                                        <button className="btn"
+                                            onClick={() => dispatch(openFormFunc({ data: formEditData, action: "editAssessment" }))}  >Edit</button>
+                                        <button className="btn cancel"
+                                            onClick={() => dispatch(openDeleteModal({ data: formEditData, action: "deleteAssessment" }))}>Delete</button>
                                     </div>
                                 </div>
                             )

@@ -14,7 +14,7 @@ const AssessmentForm = () => {
         dispatch(getApplicantData())
     }, [dispatch])
 
-    const { assessmentEditValue } = useSelector((store) => store.form)
+    const { assessmentEditValue, createViewAssessmentValue } = useSelector((store) => store.form)
     const { applicantData } = useSelector((store) => store.applicant)
 
 
@@ -26,7 +26,8 @@ const AssessmentForm = () => {
         applicantFile: null,
     }
 
-    const editingValues = {
+    let editingId = assessmentEditValue.id
+    const editingValue = {
         applicantId: assessmentEditValue.applicantId,
         title: assessmentEditValue.title,
         evaluation: assessmentEditValue.evaluation,
@@ -34,7 +35,18 @@ const AssessmentForm = () => {
         applicantFile: null,
     }
 
-    let editingId = assessmentEditValue.id
+    const createViewValue = {
+        applicantId: JSON.stringify(createViewAssessmentValue),
+        title: '',
+        evaluation: '',
+        document: '',
+        applicantFile: null,
+    }
+
+    // const sending initialValues for formk
+    const formValues = editingId ? editingValue : createViewAssessmentValue.length > 0 ? createViewValue : initialValues
+
+
 
 
     const onSubmit = async (values, { resetForm }) => {
@@ -57,7 +69,7 @@ const AssessmentForm = () => {
             <div className="form-container">
                 <header>Assessment</header>
                 <Formik
-                    initialValues={(!editingId) ? initialValues : editingValues}
+                    initialValues={formValues}
                     validationSchema={assessmentSchema} onSubmit={onSubmit}>
                     {({ values, errors, touched, setFieldValue }) => (
 

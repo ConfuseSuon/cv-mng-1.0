@@ -661,3 +661,37 @@ select,
 .calendar-wrapper h4 {
   font-weight: 500;
 }
+
+/* Global search box */
+
+.global-searchbox {
+  position: relative;
+  height: 2.4rem;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 2.2rem;
+}
+
+.global-searchbox input {
+  height: 100%;
+  font-size: 0.9rem;
+  color: var(--grey-700);
+  width: 100%;
+  position: absolute;
+  border-radius: 5px;
+  border: 1px solid var(--grey-200);
+  outline: var(--grey-900);
+  /* padding: 0 25px 0 50px; */
+  padding: 4px 100px 4px 30px;
+}
+
+.global-searchbox .icon {
+  position: absolute;
+  margin-left: 22rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  color: var(--grey-400);
+  font-size: 1.5rem;
+  cursor: pointer;
+}

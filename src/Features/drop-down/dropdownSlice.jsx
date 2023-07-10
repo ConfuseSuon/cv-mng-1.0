@@ -19,14 +19,19 @@ const dropdownSlice = createSlice({
             switch (payload.listName) {
                 case "position":
                     state.positionOption = !state.positionOption;
+                    state.dropdownPositionData = !state.dropdownPositionData
                     break;
 
                 case "status":
                     state.statusOption = !state.statusOption;
+                    state.dropdownStatusData = !state.dropdownStatusData
+
                     break;
 
                 case "technology":
                     state.technologyOption = !state.technologyOption;
+                    state.dropdownTechnologynData = !state.dropdownTechnologynData
+
                     break;
 
                 default:
@@ -52,18 +57,11 @@ const dropdownSlice = createSlice({
                     state.dropdownTable = true
                     state.dropdownStatusData = payload.data.filter((item) => item.status === payload.name)
                     break;
-                case "I Interview Completed":
+                case "Interviewing":
                     state.dropdownTable = true
                     state.dropdownStatusData = payload.data.filter((item) => item.status === payload.name)
                     break;
-                case "II Interview Completed":
-                    state.dropdownTable = true
-                    state.dropdownStatusData = payload.data.filter((item) => item.status === payload.name)
-                    break;
-                case "III Interview Completed":
-                    state.dropdownTable = true
-                    state.dropdownStatusData = payload.data.filter((item) => item.status === payload.name)
-                    break;
+
                 case "Hired":
                     state.dropdownTable = true
                     state.dropdownStatusData = payload.data.filter((item) => item.status === payload.name)
@@ -122,22 +120,15 @@ export const dropdownOption = [
             },
             {
                 id: 2,
-                option: "I Interview Completed",
+                option: "Interviewing",
             },
+
             {
                 id: 3,
-                option: "II Interview Completed",
-            },
-            {
-                id: 4,
-                option: "III Interview Completed",
-            },
-            {
-                id: 5,
                 option: "Hired",
             },
             {
-                id: 6,
+                id: 4,
                 option: "Rejected",
             },
         ],

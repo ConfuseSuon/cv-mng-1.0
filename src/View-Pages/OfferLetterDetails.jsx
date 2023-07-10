@@ -4,7 +4,9 @@ import { useParams } from 'react-router-dom'
 import { getOfferLetterData } from '../Features/offerLetter/offerLetterSlice'
 import Header from '../Shared-Layout/Header'
 import { BiMessageAltDetail } from 'react-icons/bi'
-import OfferLetterView from '../View Pages/OfferLetterView'
+import OfferLetterView from '../View-Pages/OfferLetterView'
+import OfferLetterForm from '../Form/OfferLetterForm'
+import Modal from '../Shared-Layout/Modal'
 
 const OfferLetterDetails = () => {
 
@@ -19,6 +21,8 @@ const OfferLetterDetails = () => {
 
     const { offerLetterData } = useSelector((store) => store.offerLetter)
     const { closeSideBar } = useSelector((store) => store.sharedFeatures)
+    const { openOfferLetterForm } = useSelector((store) => store.form)
+    const { offerLetterDeleteModal } = useSelector((store) => store.modal)
 
 
     const filterOfferLetter = offerLetterData.filter((item) => item.id === parseInt(offerLetterId))
@@ -29,7 +33,8 @@ const OfferLetterDetails = () => {
         <React.Fragment>
             <Header back={'offerLetter'} />
             <section className={`${closeSideBar ? 'main-container full-section' : 'main-container '}`}>
-
+                {openOfferLetterForm && <OfferLetterForm />}
+                {offerLetterDeleteModal && <Modal />}
                 {
                     singleOfferLetter ? (<div className="tableContainer ">
                         <div className="main-title secondary-title" >
@@ -41,9 +46,9 @@ const OfferLetterDetails = () => {
                         </div>
 
                         <div className="card-container">
-                            <OfferLetterView />
+                            <OfferLetterView id={offerLetterId} request={'offerLetter'} />
                         </div>
-                    </div>) : 'no - data'
+                    </div>) : 'No - data'
                 }
             </section>
 

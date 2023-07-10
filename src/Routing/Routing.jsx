@@ -13,10 +13,10 @@ import Experience from '../Pages/Experience'
 import ProtectedRoute from './ProtectedRoute'
 import SharedLayout from './SharedLayout'
 import TemplateLetter from '../Pages/TemplateLetter'
-import ApplicantDetails from '../View Pages/ApplicantDetails'
-import InterivewDetails from '../View Pages/InterivewDetails'
-import AssessmentDetails from '../View Pages/AssessmentDetails'
-import OfferLetterDetails from '../View Pages/OfferLetterDetails'
+import ApplicantDetails from '../View-Pages/ApplicantDetails'
+import InterivewDetails from '../View-Pages/InterivewDetails'
+import AssessmentDetails from '../View-Pages/AssessmentDetails'
+import OfferLetterDetails from '../View-Pages/OfferLetterDetails'
 
 
 
@@ -36,8 +36,8 @@ const Routing = () => {
           <Route path='/interview' element={<Interview />} />
           <Route path='/interview/interview-details/:interviewId' element={<InterivewDetails />} />
           <Route path='/experience' element={<Experience />} />
-          <Route path='/assesment-test' element={<Assesment />} />
-          <Route path='/assesment-test/assessment-test-details/:assessmentTestId' element={<AssessmentDetails />} />
+          <Route path='/assessment-test' element={<Assesment />} />
+          <Route path='/assessment-test/assessment-test-details/:assessmentTestId' element={<AssessmentDetails />} />
           <Route path='/offer-letter' element={<OfferLetter />} />
           <Route path='/offer-letter/offer-letter-details/:offerLetterId' element={<OfferLetterDetails />} />
           <Route path='/offer-letter/add-template' element={<TemplateLetter />} />

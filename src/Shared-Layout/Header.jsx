@@ -4,6 +4,7 @@ import SidebarToggle from './SidebarToggle'
 import { openFormFunc } from '../Features/form/formSlice'
 import { BiPlus, BiUndo } from 'react-icons/bi'
 import { useNavigate } from 'react-router-dom'
+import GlobalSearch from './GlobalSearch'
 
 const Header = ({ action, back }) => {
 
@@ -43,6 +44,8 @@ const Header = ({ action, back }) => {
         <React.Fragment>
             <header className={`${closeSideBar ? 'add-header header-full' : 'add-header'}`}>
                 <SidebarToggle />
+
+                <GlobalSearch />
 
                 <button
                     className='btn add-btn'

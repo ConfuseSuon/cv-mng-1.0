@@ -21,8 +21,8 @@ const AssessmentDetails = () => {
 
     const { assessmentData } = useSelector((store) => store.assessment)
     const { closeSideBar } = useSelector((store) => store.sharedFeatures)
-    const { openInterviewForm } = useSelector((store) => store.form)
-    const { interviewDeleteModal } = useSelector((store) => store.modal)
+    const { openAssessmentForm } = useSelector((store) => store.form)
+    const { assessmentDeleteModal } = useSelector((store) => store.modal)
 
 
     const filterAssessmentTest = assessmentData.filter((item) => item.id === parseInt(assessmentTestId))
@@ -34,8 +34,8 @@ const AssessmentDetails = () => {
         <React.Fragment>
             <Header back={'assessmentTest'} />
             <section className={`${closeSideBar ? 'main-container full-section' : 'main-container '}`}>
-                {openInterviewForm && (<AssessmentForm />)}
-                {interviewDeleteModal && <Modal />}
+                {openAssessmentForm && (<AssessmentForm />)}
+                {assessmentDeleteModal && <Modal />}
 
                 {
                     singleAssessmentTest ? (<div className="tableContainer ">

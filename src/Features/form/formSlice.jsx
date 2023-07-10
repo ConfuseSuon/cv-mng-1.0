@@ -11,6 +11,9 @@ const initialState = {
     interviewerEditValue: [],
     assessmentEditValue: [],
     offerLetterEditValue: [],
+    createViewInterviewValue: [],
+    createViewAssessmentValue: [],
+    createViewOfferLetterValue: [],
 
 }
 
@@ -21,9 +24,7 @@ const formSlice = createSlice({
 
         openFormFunc: (state, { payload }) => {
 
-            const { action } = payload
-
-            switch (action) {
+            switch (payload.action) {
                 case 'createApplicant':
                     state.openAppForm = true;
                     state.applicantEditValue = []
@@ -35,11 +36,50 @@ const formSlice = createSlice({
 
                 case 'createInterview':
                     state.openInterviewForm = true;
+                    state.createViewInterviewValue = []
                     state.interviewEditValue = []
+                    break;
+                case 'createViewInterview':
+                    state.openInterviewForm = true;
+                    state.interviewEditValue = []
+                    state.createViewInterviewValue = payload.data
                     break;
                 case 'editInterview':
                     state.openInterviewForm = true;
+                    state.createViewInterviewValue = []
                     state.interviewEditValue = payload.data
+                    break;
+
+                case 'createAssessment':
+                    state.openAssessmentForm = true
+                    state.assessmentEditValue = []
+                    state.assessmentEditValue = []
+                    break;
+                case 'createViewAssessment':
+                    state.openAssessmentForm = true;
+                    state.assessmentEditValue = []
+                    state.createViewAssessmentValue = payload.data
+                    break;
+                case 'editAssessment':
+                    state.openAssessmentForm = true
+                    state.createViewAssessmentValue = []
+                    state.assessmentEditValue = payload.data
+                    break;
+
+                case 'createOfferLetter':
+                    state.openOfferLetterForm = true
+                    state.offerLetterEditValue = []
+                    state.createViewOfferLetterValue = []
+                    break;
+                case 'createViewOfferLetter':
+                    state.openOfferLetterForm = true;
+                    state.offerLetterEditValue = []
+                    state.createViewOfferLetterValue = payload.data
+                    break;
+                case 'editOfferLetter':
+                    state.openOfferLetterForm = true
+                    state.createViewOfferLetterValue = []
+                    state.offerLetterEditValue = payload.data
                     break;
 
                 case 'createInterviewer':
@@ -49,24 +89,6 @@ const formSlice = createSlice({
                 case 'editInterviewer':
                     state.openInterviewerForm = true
                     state.interviewerEditValue = payload.data
-                    break;
-
-                case 'createAssessment':
-                    state.openAssessmentForm = true
-                    state.assessmentEditValue = []
-                    break;
-                case 'editAssessment':
-                    state.openAssessmentForm = true
-                    state.assessmentEditValue = payload.data
-                    break;
-
-                case 'createOfferLetter':
-                    state.openOfferLetterForm = true
-                    state.offerLetterEditValue = []
-                    break;
-                case 'editOfferLetter':
-                    state.openOfferLetterForm = true
-                    state.offerLetterEditValue = payload.data
                     break;
                 default:
                     console.log("Unknown action")
